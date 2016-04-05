@@ -6,16 +6,20 @@ public class Message_Controller : MonoBehaviour {
 
 	public static Message_Controller message_ctrl;
 
-	public string[] test_message;
+	public string[] current_message_list;
 	public string message_type;
 	public int message_index = 0;
 	public GameObject current_entity; // Current entity one is interacting with
-	public bool currently_interacting; // flag if currently interacting with a gameobject
+	public bool currently_interacting = false; // flag if currently interacting with a gameobject
 
 	public bool active_message = false;
 
 	public Text message_content;
 	public GameObject message_panel;
+
+	private bool is_typing = false;
+	private bool cancel_typing;
+	public float type_speed = 1.0f;
 
 
 	// Makes sure there is a single MessageController that is created
@@ -43,14 +47,21 @@ public class Message_Controller : MonoBehaviour {
 
 		if (active_message == true) {
 			if (Input.GetKeyDown ("return")) {
-				if (message_index < test_message.Length) {
-					message_content.text = test_message [message_index];
-					message_index++;
+				// Check if text is not currently being written across the panel
+				if (!is_typing) {
+					if (message_index < current_message_list.Length) {
+						//message_content.text = current_message_list[message_index];
+						StartCoroutine(TextScroll(current_message_list[message_index]));
+						message_index++;
+
+					} else {
+						message_content.text = "";
+						active_message = false;
+						currently_interacting = false; // Ending interaction for sake of testing at end of message list
+						message_panel.SetActive (false);
+					}
 				} else {
-					message_content.text = "";
-					active_message = false;
-					currently_interacting = false;
-					message_panel.SetActive (false);
+					cancel_typing = true; // Stops the scrolling text and displays the entire message
 				}
 			}
 		}
@@ -61,13 +72,14 @@ public class Message_Controller : MonoBehaviour {
 			Debug.LogWarning ("Message list appears to be empty");
 		}
 		else{
-			test_message = message_list;
+			current_message_list = message_list;
 			message_index = starting_index;
 			message_type = type;
 			active_message = true;
 		}
 	}
 
+	// Begin a new interaction with an entity
 	public void interacting_entity(GameObject entity){
 		if (currently_interacting == false) {
 			current_entity = entity;
@@ -78,6 +90,22 @@ public class Message_Controller : MonoBehaviour {
 		} else {
 			Debug.LogWarning ("Currently already interacting with an object");
 		}
+	}
+
+	// Coroutine to handle scrolling text (based on tutorial in youtube link)
+	private IEnumerator TextScroll (string message){
+		int letter_index = 0;
+		message_content.text = "";
+		is_typing = true;
+		cancel_typing = false;
+		// Go through each letter in the message and displaying them based on the speed
+		while (is_typing && !cancel_typing && (letter_index < message.Length)) {
+			message_content.text += message [letter_index];
+			letter_index++;
+			yield return new WaitForSeconds (type_speed); // Manages the speed for the scrolling text
+		}
+		message_content.text = message; // Displays the whole line if canceled typing or the while loop finished
+		is_typing = false;
 	}
 
 }
