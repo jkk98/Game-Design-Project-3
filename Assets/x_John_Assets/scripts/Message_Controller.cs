@@ -7,12 +7,15 @@ public class Message_Controller : MonoBehaviour {
 	public static Message_Controller message_ctrl;
 
 	public string[] test_message;
+	public string message_type;
 	public int message_index = 0;
+	public GameObject current_entity; // Current entity one is interacting with
+	public bool currently_interacting; // flag if currently interacting with a gameobject
 
 	public bool active_message = false;
 
 	public Text message_content;
-	public string message_type;
+	public GameObject message_panel;
 
 
 	// Makes sure there is a single MessageController that is created
@@ -31,7 +34,8 @@ public class Message_Controller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		message_panel = GameObject.Find ("Message Panel");
+		message_panel.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -45,6 +49,8 @@ public class Message_Controller : MonoBehaviour {
 				} else {
 					message_content.text = "";
 					active_message = false;
+					currently_interacting = false;
+					message_panel.SetActive (false);
 				}
 			}
 		}
@@ -59,6 +65,18 @@ public class Message_Controller : MonoBehaviour {
 			message_index = starting_index;
 			message_type = type;
 			active_message = true;
+		}
+	}
+
+	public void interacting_entity(GameObject entity){
+		if (currently_interacting == false) {
+			current_entity = entity;
+			string[] test_message = current_entity.GetComponent<Entity_Info> ().message_test;
+			new_message_list (test_message, entity.tag);
+			currently_interacting = true;
+			message_panel.SetActive (true);
+		} else {
+			Debug.LogWarning ("Currently already interacting with an object");
 		}
 	}
 

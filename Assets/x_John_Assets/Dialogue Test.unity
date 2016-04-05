@@ -544,6 +544,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity_name: Agent person guy
+  message_test:
+  - 'Why am I '
+  - typing stuff
+  - in this
+  - message
+  - the end.
 --- !u!1 &1304970066 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
@@ -579,10 +585,13 @@ MonoBehaviour:
   - how
   - are
   - you
+  message_type: 
   message_index: 0
+  current_entity: {fileID: 0}
+  currently_interacting: 0
   active_message: 0
   message_content: {fileID: 1782660625}
-  message_type: 
+  message_panel: {fileID: 0}
 --- !u!1 &1311598950
 GameObject:
   m_ObjectHideFlags: 0

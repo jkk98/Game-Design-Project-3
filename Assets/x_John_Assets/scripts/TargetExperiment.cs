@@ -49,7 +49,11 @@ public class TargetExperiment : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown ("return")) {
-			interact ();
+			if (Message_Controller.message_ctrl.currently_interacting == false) {
+				interact ();
+			} else {
+				Debug.LogWarning ("Currently already interacting with an object");
+			}
 		}
 	}
 
@@ -61,6 +65,7 @@ public class TargetExperiment : MonoBehaviour {
 	{
 		if (interactable == true) {
 			Debug.Log ("Interacting with object");
+			Message_Controller.message_ctrl.interacting_entity (targeted_object_collider.gameObject);
 		} else if (targeted_object_collider != null) {
 			Debug.Log ("Object is too far away to interact with");
 		} else {

@@ -4,6 +4,7 @@ using System.Collections;
 public class Entity_Info : MonoBehaviour {
 
 	public string entity_name;
+	public string[] message_test;
 
 
 	void Awake(){
