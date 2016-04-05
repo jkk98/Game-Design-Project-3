@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Message_Controller : MonoBehaviour {
 
@@ -16,10 +17,13 @@ public class Message_Controller : MonoBehaviour {
 
 	public Text message_content;
 	public GameObject message_panel;
+	public GameObject player;
+	private RigidbodyFirstPersonController player_FP_ctrl;
 
 	private bool is_typing = false;
 	private bool cancel_typing;
 	public float type_speed = 1.0f;
+	public KeyCode activate_key = KeyCode.Tab;
 
 
 	// Makes sure there is a single MessageController that is created
@@ -40,13 +44,14 @@ public class Message_Controller : MonoBehaviour {
 	void Start () {
 		message_panel = GameObject.Find ("Message Panel");
 		message_panel.SetActive (false);
+		player_FP_ctrl = player.GetComponent<RigidbodyFirstPersonController> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		if (active_message == true) {
-			if (Input.GetKeyDown ("return")) {
+			if (Input.GetKeyDown (activate_key)) {
 				// Check if text is not currently being written across the panel
 				if (!is_typing) {
 					if (message_index < current_message_list.Length) {
@@ -59,6 +64,10 @@ public class Message_Controller : MonoBehaviour {
 						active_message = false;
 						currently_interacting = false; // Ending interaction for sake of testing at end of message list
 						message_panel.SetActive (false);
+
+						// Disables the mouse and enables the first person controller
+						player_FP_ctrl.mouseLook.SetCursorLock(true);
+						player_FP_ctrl.enabled = true;
 					}
 				} else {
 					cancel_typing = true; // Stops the scrolling text and displays the entire message
@@ -71,12 +80,12 @@ public class Message_Controller : MonoBehaviour {
 		if (message_list.Length == 0) {
 			Debug.LogWarning ("Message list appears to be empty");
 		}
-		else{
-			current_message_list = message_list;
-			message_index = starting_index;
-			message_type = type;
-			active_message = true;
-		}
+
+		current_message_list = message_list;
+		message_index = starting_index;
+		message_type = type;
+		active_message = true;
+
 	}
 
 	// Begin a new interaction with an entity
@@ -87,6 +96,10 @@ public class Message_Controller : MonoBehaviour {
 			new_message_list (test_message, entity.tag);
 			currently_interacting = true;
 			message_panel.SetActive (true);
+
+			// Enables the mouse and disables the first person controller
+			player_FP_ctrl.mouseLook.SetCursorLock(false);
+			player_FP_ctrl.enabled = false;
 		} else {
 			Debug.LogWarning ("Currently already interacting with an object");
 		}

@@ -10,6 +10,7 @@ public class TargetExperiment : MonoBehaviour {
 
 	public Collider targeted_object_collider;
 	public Text target_name;
+	public KeyCode interact_button = KeyCode.Tab;
 
 
 	// Use this for initialization
@@ -48,7 +49,7 @@ public class TargetExperiment : MonoBehaviour {
 			Target_GUI_Effet("");
 		}
 
-		if (Input.GetKeyDown ("return")) {
+		if (Input.GetKeyDown (interact_button)) {
 			if (Message_Controller.message_ctrl.currently_interacting == false) {
 				interact ();
 			} else {

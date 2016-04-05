@@ -316,9 +316,10 @@ GameObject:
   - 33: {fileID: 492178506}
   - 65: {fileID: 492178505}
   - 23: {fileID: 492178504}
+  - 114: {fileID: 492178508}
   m_Layer: 0
   m_Name: Note_1
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,6 +381,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &492178508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 492178503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822935cc0cfaee4469ca1984aced2e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity_name: 
+  message_test:
+  - I am a Note
+  - I should not be talking like I am currently doing.
+  object_test: []
 --- !u!1 &615250670
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +566,10 @@ MonoBehaviour:
   - typing stuff
   - in this
   - message
+  - Four score and seven years ago. The quick brown fox jumped over the lazy dog.
+    THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG. more words here ! ? and "" this.
   - the end.
+  object_test: []
 --- !u!1 &1304970066 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
@@ -569,29 +589,7 @@ MonoBehaviour:
   interactable_distance: 2
   targeted_object_collider: {fileID: 0}
   target_name: {fileID: 373862238}
---- !u!114 &1304970072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1304970066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce655ea77538b0419ca0e1ee7ab31ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test_message:
-  - hello
-  - how
-  - are
-  - you
-  message_type: 
-  message_index: 0
-  current_entity: {fileID: 0}
-  currently_interacting: 0
-  active_message: 0
-  message_content: {fileID: 1782660625}
-  message_panel: {fileID: 0}
+  interact_button: 9
 --- !u!1 &1311598950
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +669,7 @@ GameObject:
   - 33: {fileID: 1372244023}
   - 136: {fileID: 1372244022}
   - 23: {fileID: 1372244021}
+  - 114: {fileID: 1372244025}
   m_Layer: 0
   m_Name: Agent_2
   m_TagString: Agent
@@ -736,6 +735,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1372244025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1372244020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822935cc0cfaee4469ca1984aced2e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity_name: 
+  message_test: []
+  object_test: []
 --- !u!1001 &1410954526
 Prefab:
   m_ObjectHideFlags: 0
@@ -775,9 +788,29 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: advancedSettings.airControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: mouseLook.lockCursor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1546512315 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+  m_PrefabInternal: {fileID: 1410954526}
 --- !u!1 &1782660623
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.892}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -919,6 +952,56 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838896491}
+--- !u!1 &1880242398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1880242400}
+  - 114: {fileID: 1880242399}
+  m_Layer: 0
+  m_Name: Game Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1880242399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880242398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce655ea77538b0419ca0e1ee7ab31ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_message_list: []
+  message_type: 
+  message_index: 0
+  current_entity: {fileID: 0}
+  currently_interacting: 0
+  active_message: 0
+  message_content: {fileID: 1782660625}
+  message_panel: {fileID: 1311598950}
+  player: {fileID: 1546512315}
+  type_speed: 0.1
+  activate_key: 323
+--- !u!4 &1880242400
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880242398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.651148, y: -0.5976614, z: -0.026014328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1906966762
 GameObject:
   m_ObjectHideFlags: 0
