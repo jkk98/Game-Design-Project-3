@@ -8,11 +8,15 @@ public class GameController : MonoBehaviour {
 
 	/* Add vairables as necessary for existing through out the game */
 
+	public GameObject player;
+
 	public float max_health = 10; // Leaving health here as an option for the game.
 	public float current_health = 10;
 
-	public int current_scene_index = 1; 
+	//public int current_scene_index = 1;
+	public string link_id; // id of object containing Position/Rotation for player to start out in loaded scene.
 
+	public int reset_count = 0; // Keeping it public just to check in the inspector
 
 	void load_scene(string scene_name){
 
@@ -43,5 +47,11 @@ public class GameController : MonoBehaviour {
 	void FixedUpdate()
 	{
 		
+	}
+
+	void OnLevelWasLoaded(int level){
+		Transform starting_position = GameObject.Find (link_id).transform;
+		player.transform.position = starting_position.position;
+		player.transform.rotation = starting_position.rotation;
 	}
 }

@@ -123,6 +123,7 @@ MonoBehaviour:
   locked: 0
   integer_value: 0
   string_value: Central Scene
+  link_id: World Portal Exit
 --- !u!23 &60708280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &102081073
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +267,7 @@ GameObject:
   - 223: {fileID: 109744778}
   - 114: {fileID: 109744777}
   - 114: {fileID: 109744776}
+  - 114: {fileID: 109744780}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -342,12 +344,23 @@ RectTransform:
   - {fileID: 211095803}
   - {fileID: 154703326}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &109744780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109744775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16ce07724fd643c582fc68f916bd210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &154703325
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,10 +572,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 318915904}
   - 114: {fileID: 318915903}
+  - 114: {fileID: 318915905}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -600,7 +614,50 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
+--- !u!114 &318915905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318915902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48429e6f1b8d7644f935a110eee08fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1979763734}
+  max_health: 10
+  current_health: 10
+  link_id: Astral Plane Entrance
+  reset_count: 0
+--- !u!1 &883405974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 883405975}
+  m_Layer: 0
+  m_Name: Astral Plane Entrance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883405975
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883405974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7261508, y: 1.3, z: -25.77733}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1001 &1060641284
 Prefab:
   m_ObjectHideFlags: 0
@@ -638,7 +695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
@@ -824,3 +881,14 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
   m_PrefabInternal: {fileID: 1060641284}
+--- !u!114 &1979763735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1979763734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16ce07724fd643c582fc68f916bd210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ public class DeviceInfo : Entity_Info {
 
 	public int integer_value; // currently have generic variables to be used differently by different Device types
 	public string string_value; // This is way is bad coding practice but it is easier for the moment than chaning the inspector
+	public string link_id; // Name of game object in next where player will spawn
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,7 @@ public class DeviceInfo : Entity_Info {
 
 	void UseDoor(){
 		Debug.Log ("Loading Scene: " + string_value);
+		GameController.controller.link_id = link_id;
 		SceneManager.LoadScene (string_value);
 	}
 }
