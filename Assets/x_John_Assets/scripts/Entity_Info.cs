@@ -22,4 +22,8 @@ public class Entity_Info : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void Interact(){
+		// Does nothing for the moment for the superclass
+	}
 }

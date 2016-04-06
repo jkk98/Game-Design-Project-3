@@ -17,6 +17,7 @@ public class Message_Controller : MonoBehaviour {
 
 	public Text message_content;
 	public GameObject message_panel;
+	public GameObject letterbox; // A somewhat redundant setup to manipulate UI elements for testing purposes
 	public GameObject player;
 	private RigidbodyFirstPersonController player_FP_ctrl;
 
@@ -43,7 +44,10 @@ public class Message_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		message_panel = GameObject.Find ("Message Panel");
+		letterbox = GameObject.Find ("Letter Box");
+
 		message_panel.SetActive (false);
+		letterbox.SetActive (false);
 		player_FP_ctrl = player.GetComponent<RigidbodyFirstPersonController> ();
 	}
 	
@@ -64,6 +68,7 @@ public class Message_Controller : MonoBehaviour {
 						active_message = false;
 						currently_interacting = false; // Ending interaction for sake of testing at end of message list
 						message_panel.SetActive (false);
+						letterbox.SetActive (false);
 
 						// Disables the mouse and enables the first person controller
 						player_FP_ctrl.mouseLook.SetCursorLock(true);
@@ -96,6 +101,7 @@ public class Message_Controller : MonoBehaviour {
 			new_message_list (test_message, entity.tag);
 			currently_interacting = true;
 			message_panel.SetActive (true);
+			letterbox.SetActive (true);
 
 			// Enables the mouse and disables the first person controller
 			player_FP_ctrl.mouseLook.SetCursorLock(false);

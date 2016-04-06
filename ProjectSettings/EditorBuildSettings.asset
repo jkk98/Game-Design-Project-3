@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/x_John_Assets/scenes/Menu Screen.unity
+  - enabled: 1
+    path: Assets/x_John_Assets/scenes/Astral Plane.unity
+  - enabled: 1
+    path: Assets/x_John_Assets/scenes/Central Scene.unity

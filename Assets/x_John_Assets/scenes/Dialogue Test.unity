@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -396,7 +396,6 @@ MonoBehaviour:
   message_test:
   - I am a Note
   - I should not be talking like I am currently doing.
-  object_test: []
 --- !u!1 &615250670
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +568,6 @@ MonoBehaviour:
   - Four score and seven years ago. The quick brown fox jumped over the lazy dog.
     THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG. more words here ! ? and "" this.
   - the end.
-  object_test: []
 --- !u!1 &1304970066 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
@@ -748,7 +746,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity_name: 
   message_test: []
-  object_test: []
 --- !u!1001 &1410954526
 Prefab:
   m_ObjectHideFlags: 0

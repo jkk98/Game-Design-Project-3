@@ -66,7 +66,13 @@ public class TargetExperiment : MonoBehaviour {
 	{
 		if (interactable == true) {
 			Debug.Log ("Interacting with object");
-			Message_Controller.message_ctrl.interacting_entity (targeted_object_collider.gameObject);
+			if (targeted_object_collider.CompareTag ("Agent") || targeted_object_collider.CompareTag ("Note")) {
+				Message_Controller.message_ctrl.interacting_entity (targeted_object_collider.gameObject);
+			}
+			else if(targeted_object_collider.CompareTag ("Device")){
+				// Different thing for interacting with device
+				targeted_object_collider.gameObject.GetComponent<DeviceInfo>().Interact(); // Would prefer a generic EntityInfo.Interact() for everything but I am having some inheritance issues
+			}
 		} else if (targeted_object_collider != null) {
 			Debug.Log ("Object is too far away to interact with");
 		} else {
