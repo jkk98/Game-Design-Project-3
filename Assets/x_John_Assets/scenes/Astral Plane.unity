@@ -631,6 +631,10 @@ MonoBehaviour:
   current_health: 10
   link_id: Astral Plane Entrance
   reset_count: 0
+  timer_activated: 0
+  timer_count: 0
+  timer_max: 1000
+  timer_rate: 1
 --- !u!1 &883405974
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +716,14 @@ Prefab:
     - target: {fileID: 11400004, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
       propertyPath: mouseLook.lockCursor
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 2}
