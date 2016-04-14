@@ -10,12 +10,17 @@ public class TargetExperiment : MonoBehaviour {
 
 	public Collider targeted_object_collider;
 	public Text target_name;
+	public GameObject ray_target_ui;
 	public KeyCode interact_button = KeyCode.Tab;
+
+	private Image ray_target_image;
 
 
 	// Use this for initialization
 	void Start () {
 		Target_GUI_Effet("");
+		ray_target_image = ray_target_ui.GetComponent<Image> ();
+		ray_target_ui.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -29,17 +34,28 @@ public class TargetExperiment : MonoBehaviour {
 
 		// Detected an object
 		if (hit.collider != null) {
-			targeted_object_collider = hit.collider;
-			Target_GUI_Effet(targeted_object_collider.name);
+			if (hit.collider.gameObject.CompareTag ("Agent") || hit.collider.gameObject.CompareTag ("Note") || hit.collider.gameObject.CompareTag ("Device")) { 
+				targeted_object_collider = hit.collider;
+				Target_GUI_Effet (targeted_object_collider.name);
+				ray_target_ui.SetActive (true);
 
-			// Check if close enough to interact with object
-			if (hit.distance < interactable_distance) {
-				target_name.color = Color.green;
-				interactable = true;
-			}
-			else{
-				target_name.color = Color.red;
-				interactable = false;
+
+				// Check if close enough to interact with object
+				if (hit.distance < interactable_distance) {
+					
+					target_name.color = Color.green;
+					ray_target_image.color = Color.green;
+					interactable = true;
+				} else {
+					target_name.color = Color.red;
+					interactable = false;
+					ray_target_image.color = Color.red;
+				}
+			} else {
+				targeted_object_collider = null;
+				interactable = false; // Redundantly changes interactable to false in cases where ray cast immediately loses object while up close
+				Target_GUI_Effet("");
+				ray_target_ui.SetActive (false);
 			}
 		}
 		// else no object detected
@@ -47,6 +63,7 @@ public class TargetExperiment : MonoBehaviour {
 			targeted_object_collider = null;
 			interactable = false; // Redundantly changes interactable to false in cases where ray cast immediately loses object while up close
 			Target_GUI_Effet("");
+			ray_target_ui.SetActive (false);
 		}
 
 		if (Input.GetKeyDown (interact_button)) {
