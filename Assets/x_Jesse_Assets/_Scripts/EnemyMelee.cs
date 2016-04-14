@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class MeleeSystem : MonoBehaviour {
+public class EnemyMelee : MonoBehaviour {
 
 	// Use this for initialization
 	public int SwordDamage = 50;
@@ -13,34 +13,36 @@ public class MeleeSystem : MonoBehaviour {
 	private bool horizontalRight = true;
 	public Animator anim;
 	public Animator shield;
-
+	private int block_cnt;
+	private int action;
 	public GameObject weapon;
 
 	// Update is called once per frame
 	void Update () {
-
-		if (Input.GetButtonUp ("Mouse2")) {
-			shield.Play ("idleshield", -1, .9f);
+		action = Random.Range (1, 6);
+		if (block_cnt > 100) {
+			shield.Play ("idleshield", -1, 8f);
+			action = Random.Range (4, 6);
+			block_cnt = 0;
 		}
-
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("idle") && shield.GetCurrentAnimatorStateInfo(0).IsName("idleshield")) {
 			attack = false;
 			//RaycastHit hitInfo;
 			//Ray hitRay = new Ray (transform.position, transform.TransformDirection (Vector3.forward));
 
-			if (Input.GetButtonDown ("Mouse2") && Input.GetButton ("Hstrike")) {
+			if (action == 1) {
 				weapon.GetComponent<MaceAttributes> ().recentAttack = "Hblock";
 				shield.Play ("Hblock", -1, 0f);
 
-			}else if (Input.GetButtonDown ("Mouse2") && Input.GetButton ("Stab")) {
-					weapon.GetComponent<MaceAttributes> ().recentAttack = "Sblock";
-					shield.Play ("Sblock", -1, 0f);
+			}else if (action == 2) {
+				weapon.GetComponent<MaceAttributes> ().recentAttack = "Sblock";
+				shield.Play ("Sblock", -1, 0f);
 
-			}else if (Input.GetButtonDown ("Mouse2")) {
+			}else if (action == 3) {
 				weapon.GetComponent<MaceAttributes> ().recentAttack = "Vblock";
 				shield.Play ("Vblock", -1, 0f);
 
-			}else if(Input.GetButtonDown("Mouse1") && Input.GetButton("Hstrike")){
+			}else if(action == 4){
 				weapon.GetComponent<MaceAttributes> ().recentAttack = "Hstrike";
 				attack = true;
 				if (horizontalRight) {
@@ -50,12 +52,12 @@ public class MeleeSystem : MonoBehaviour {
 					anim.Play ("horizontalleft", -1, 0f);
 					horizontalRight = true;
 				}
-			
-			}else if (Input.GetButtonDown("Mouse1") && Input.GetButton("Stab")){
+
+			}else if (action == 5){
 				weapon.GetComponent<MaceAttributes> ().recentAttack = "Stab";
 				attack = true;
 				anim.Play ("stab", -1, 0f);
-			}else if (Input.GetButtonDown ("Mouse1")) {
+			}else if (action == 6) {
 				weapon.GetComponent<MaceAttributes> ().recentAttack = "Vstrike";
 				anim.Play ("verticle", -1,0f);
 				attack = true;
@@ -71,11 +73,14 @@ public class MeleeSystem : MonoBehaviour {
 					Debug.Log("None");
 				}*/
 			}
+		}else if(!shield.GetCurrentAnimatorStateInfo(0).IsName("idleshield")){
+			block_cnt += 1;
+
 		}
 	}
 
 	/*IEnumerator WaitForAnimation(){
 		yield return new WaitForSeconds (1);
 	}*/
-		
+
 }
