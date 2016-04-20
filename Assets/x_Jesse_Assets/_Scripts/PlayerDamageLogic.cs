@@ -5,7 +5,7 @@ public class PlayerDamageLogic : MonoBehaviour {
 
 	// Use this for initialization
 	public Transform playerMelee;
-	public GameObject enemyMace;
+	private Transform enemyAttack;
 	public GameObject myMace;
 	public int health;
 	void Start () {
@@ -21,7 +21,8 @@ public class PlayerDamageLogic : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.transform.gameObject.name == "EnemyMace") {
-			if (enemyMace.GetComponent<EnemyMelee> ().attack) {
+			enemyAttack = other.transform.parent.FindChild ("MyMelee");
+			if (enemyAttack.GetComponent<EnemyMelee> ().attack) {
 				int dmg = other.GetComponent<MaceAttributes> ().damage;
 				string mytype = myMace.GetComponent<MaceAttributes> ().recentAttack;
 				string ptype = other.GetComponent<MaceAttributes> ().recentAttack;
