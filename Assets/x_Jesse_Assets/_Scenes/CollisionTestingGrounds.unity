@@ -84,7 +84,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: 0.16666667
     manualCellSize: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 787c5e72fe04d6f4a8c34924087c57f8, type: 2}
 --- !u!1 &136803474
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +450,27 @@ MonoBehaviour:
   playerMelee: {fileID: 676485706}
   myMace: {fileID: 1659502214}
   health: 500
+--- !u!1 &381938149 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+  m_PrefabInternal: {fileID: 860482729}
+--- !u!95 &381938150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381938149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e53e721146919244aa31c7b1041bc3d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &545157794
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +679,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1001 &860482729
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 262.41528
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001149
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 281.13367
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9ae3a4977b9a3d459e0bba590abbb31, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &897061150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1953,89 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1940527931}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1982264798 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: e824e55dedf021d41941c03f103a449c, type: 3}
+  m_PrefabInternal: {fileID: 860482729}
+--- !u!114 &1982264799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982264798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b6eb7f29b4ab44e86e0115417a4b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  playerMelee: {fileID: 676485706}
+  player: {fileID: 377192779}
+  RatAnim: {fileID: 381938150}
+--- !u!114 &1982264800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982264798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559a2742f4327f845b3cddd0efb9ec92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 377192785}
+  MoveSpeed: 4
+  MaxDist: 4
+  MinDist: 2
+  ratAnim: {fileID: 381938150}
+  attack: 0
+  damage: 20
+  aggro: 0
+  aggroDistance: 10
+--- !u!65 &1982264801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982264798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42902458, y: 0.30917013, z: 0.56634754}
+  m_Center: {x: -0.08571625, y: 0.10927695, z: 0.13244629}
+--- !u!65 &1982264802
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982264798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3703527, y: 0.2694795, z: 0.5485578}
+  m_Center: {x: -0.088523865, y: 0.08830629, z: 0.14805603}
+--- !u!195 &1982264804
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982264798}
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2088890970
 GameObject:
   m_ObjectHideFlags: 0

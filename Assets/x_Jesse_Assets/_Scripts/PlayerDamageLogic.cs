@@ -47,6 +47,18 @@ public class PlayerDamageLogic : MonoBehaviour {
 					print ("end");
 				}
 			}
+		} else if(other.transform.gameObject.name == "rat_01"){
+			if (other.GetComponent<ratai> ().attack == 1) {
+				int dmg = other.GetComponent<ratai> ().damage;
+				string ptype = myMace.GetComponent<MaceAttributes> ().recentAttack;
+				if (ptype == "Hblock" || ptype == "Vblock" || ptype == "Sblock") {
+					//block
+					print("Blocked");
+				} else {
+					ApplyDamage (dmg);
+				}
+			}
+
 		}
 	}
 	void ApplyDamage(int damage){

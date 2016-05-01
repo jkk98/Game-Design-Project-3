@@ -18,13 +18,18 @@ public class MeleeSystem : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (shield.GetCurrentAnimatorStateInfo(0).IsName("idleshield")){
+			weapon.GetComponent<MaceAttributes>().recentAttack = "idle";
+		}
 		if (Input.GetButtonUp ("Mouse2")) {
 			shield.Play ("idleshield", -1, .9f);
+			print ("Check");
+			weapon.GetComponent<MaceAttributes> ().recentAttack = "idle";
 		}
 
 		if (anim.GetCurrentAnimatorStateInfo (0).IsName ("idle") && shield.GetCurrentAnimatorStateInfo(0).IsName("idleshield")) {
 			attack = false;
+			weapon.GetComponent<MaceAttributes> ().recentAttack = "idle";
 			//RaycastHit hitInfo;
 			//Ray hitRay = new Ray (transform.position, transform.TransformDirection (Vector3.forward));
 
