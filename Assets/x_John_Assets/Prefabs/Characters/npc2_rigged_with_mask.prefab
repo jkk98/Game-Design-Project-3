@@ -145,9 +145,10 @@ GameObject:
   - 4: {fileID: 427556}
   - 137: {fileID: 13780622}
   - 136: {fileID: 13668112}
+  - 114: {fileID: 11404862}
   m_Layer: 0
   m_Name: npc2asset_1
-  m_TagString: Untagged
+  m_TagString: Agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1987,9 +1988,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.74, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0, y: -0.73552865, z: 0, w: 0.6774937}
+  m_LocalPosition: {x: 192.95, y: 0.5, z: -72.52}
+  m_LocalScale: {x: 400, y: 400, z: 400}
   m_Children:
   - {fileID: 497180}
   - {fileID: 427556}
@@ -2037,7 +2038,7 @@ Animator:
   m_GameObject: {fileID: 139226}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1219db7bffd8d2947a1df044145dc6cf, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 449226fa1b002d04a8d9e3ec20eff1a7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2045,6 +2046,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11404862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822935cc0cfaee4469ca1984aced2e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity_name: 
+  message_test:
+  - '...'
 --- !u!136 &13668112
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2054,7 +2069,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0066101514
+  m_Radius: 0.003
   m_Height: 0.014884066
   m_Direction: 1
   m_Center: {x: 0.000007984943, y: 0.0067200735, z: -0.000086641514}

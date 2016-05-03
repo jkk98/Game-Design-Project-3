@@ -52,7 +52,7 @@ public class Message_Controller : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 		if (!is_typing) {
 			if (message_index < current_message_list.Length) {
