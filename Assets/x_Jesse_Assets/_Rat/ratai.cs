@@ -28,11 +28,11 @@ public class ratai : MonoBehaviour {
 				aggro = true;
 
 				if (ratAnim.GetCurrentAnimatorStateInfo (0).IsName ("rat_backoff") || (transform.position.x == player.transform.position.x && transform.position.z == player.transform.position.z)) {
-					transform.position -= transform.forward * .2f;
+					transform.position -= transform.forward * .15f;
 					attack = 0;
 
 				} else if (Vector3.Distance (transform.position, player.position) >= MinDist) {
-					Vector3 temp = new Vector3 (1, 1, 1);
+					Vector3 temp = new Vector3 (1, 2, 1);
 					GetComponent<NavMeshAgent> ().destination = player.transform.position - temp;
 					if (!ratAnim.GetCurrentAnimatorStateInfo (0).IsName ("rat_move") && !ratAnim.GetCurrentAnimatorStateInfo (0).IsName ("rat_attack")) {
 						ratAnim.Play ("rat_move", -1, 0f);

@@ -29,7 +29,7 @@ public class RatDamageLogic : MonoBehaviour {
 				int dmg = other.GetComponent<MaceAttributes> ().damage;
 				ApplyDamage (dmg);
 			}
-		}else if(other.transform.gameObject.name == "Player"){
+		}else if(other.transform.gameObject.name == "RigidBodyFPSController"){
 			other.transform.position -= other.transform.forward * .3f;
 		}
 	}

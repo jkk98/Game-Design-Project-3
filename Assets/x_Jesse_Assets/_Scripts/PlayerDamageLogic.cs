@@ -8,12 +8,17 @@ public class PlayerDamageLogic : MonoBehaviour {
 	private Transform enemyAttack;
 	public GameObject myMace;
 	public int health;
+	private bool immune = false;
+	private static float immunity_time;
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (Time.time - immunity_time > 1.0f) {
+			immune = false;
+		}
 		if (health <= 0) {
 			Dead ();
 		}
@@ -33,7 +38,7 @@ public class PlayerDamageLogic : MonoBehaviour {
 				} else if ((mytype == "Stab" && ptype == "Hblock") || (mytype == "Vstrike" && ptype == "Sblock") || (mytype == "Hstrike" && ptype == "Vblock")) {
 					print ("Blocked Enemy");
 				} else if ((mytype == "Stab" && ptype == "Hblock") || (mytype == "Vstrike" && ptype == "Sblock") || (mytype == "Hstrike" && ptype == "Vblock")) {
-					if (other.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime < .70) {
+					if (other.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime < .70f) {
 						print ("Enemy take Damage");
 						ApplyDamage (dmg);
 					}
@@ -47,8 +52,8 @@ public class PlayerDamageLogic : MonoBehaviour {
 					print ("end");
 				}
 			}
-		} else if(other.transform.gameObject.name == "rat_01"){
-			if (other.GetComponent<ratai> ().attack == 1) {
+		} else if(other.transform.gameObject.tag == "Rat"){
+			if (other.GetComponent<ratai> ().attack == 1 && !immune) {
 				int dmg = other.GetComponent<ratai> ().damage;
 				string ptype = myMace.GetComponent<MaceAttributes> ().recentAttack;
 				if (ptype == "Hblock" || ptype == "Vblock" || ptype == "Sblock") {
@@ -56,6 +61,8 @@ public class PlayerDamageLogic : MonoBehaviour {
 					print("Blocked");
 				} else {
 					ApplyDamage (dmg);
+					immune = true;
+					immunity_time = Time.time;
 				}
 			}
 
