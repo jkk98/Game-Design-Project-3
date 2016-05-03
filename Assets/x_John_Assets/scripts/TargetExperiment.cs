@@ -36,25 +36,25 @@ public class TargetExperiment : MonoBehaviour {
 		if (hit.collider != null) {
 			if (hit.collider.gameObject.CompareTag ("Agent") || hit.collider.gameObject.CompareTag ("Note") || hit.collider.gameObject.CompareTag ("Device")) { 
 				targeted_object_collider = hit.collider;
-				Target_GUI_Effet (targeted_object_collider.name);
+				//Target_GUI_Effet (targeted_object_collider.name);
 				ray_target_ui.SetActive (true);
 
 
 				// Check if close enough to interact with object
 				if (hit.distance < interactable_distance) {
 					
-					target_name.color = Color.green;
-					ray_target_image.color = Color.green;
+					//target_name.color = Color.green;
+					ray_target_image.color = new Color(0, 1, 0, 0.75f); // Sets the color to green and somewhat transparent
 					interactable = true;
 				} else {
-					target_name.color = Color.red;
+					//target_name.color = Color.red;
 					interactable = false;
-					ray_target_image.color = Color.red;
+					ray_target_image.color = new Color(1, 0, 0, .75f); // Sets the color to red and somewhat transparent
 				}
 			} else {
 				targeted_object_collider = null;
 				interactable = false; // Redundantly changes interactable to false in cases where ray cast immediately loses object while up close
-				Target_GUI_Effet("");
+				//Target_GUI_Effet("");
 				ray_target_ui.SetActive (false);
 			}
 		}
@@ -62,7 +62,7 @@ public class TargetExperiment : MonoBehaviour {
 		else{
 			targeted_object_collider = null;
 			interactable = false; // Redundantly changes interactable to false in cases where ray cast immediately loses object while up close
-			Target_GUI_Effet("");
+			//Target_GUI_Effet("");
 			ray_target_ui.SetActive (false);
 		}
 

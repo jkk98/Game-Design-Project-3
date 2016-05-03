@@ -54,6 +54,14 @@ public class Message_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		if (!is_typing) {
+			if (message_index < current_message_list.Length) {
+				//message_content.text = current_message_list[message_index];
+				StartCoroutine (TextScroll (current_message_list [message_index]));
+				message_index++;
+			}
+		}
+
 		if (active_message == true) {
 			if (Input.GetKeyDown (activate_key)) {
 				// Check if text is not currently being written across the panel
@@ -68,7 +76,7 @@ public class Message_Controller : MonoBehaviour {
 						active_message = false;
 						currently_interacting = false; // Ending interaction for sake of testing at end of message list
 						message_panel.SetActive (false);
-						letterbox.SetActive (false);
+						//letterbox.SetActive (false);
 
 						// Disables the mouse and enables the first person controller
 						player_FP_ctrl.mouseLook.SetCursorLock(true);
@@ -101,7 +109,7 @@ public class Message_Controller : MonoBehaviour {
 			new_message_list (test_message, entity.tag);
 			currently_interacting = true;
 			message_panel.SetActive (true);
-			letterbox.SetActive (true);
+			//letterbox.SetActive (true);
 
 			// Enables the mouse and disables the first person controller
 			player_FP_ctrl.mouseLook.SetCursorLock(false);
