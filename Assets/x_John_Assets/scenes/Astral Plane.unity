@@ -2017,8 +2017,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem Ipsum Stuff will appear in this box and I am testing how it looks
-    at the moment.
+  m_Text: '
+
+'
 --- !u!222 &1929563303
 CanvasRenderer:
   m_ObjectHideFlags: 0
